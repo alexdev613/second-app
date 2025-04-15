@@ -1,5 +1,5 @@
-import React, { useState, Component } from "react";
-import { View, Text, Image, Button } from 'react-native';
+import React, { useState } from "react";
+import { View, Text, Image, Button, StyleSheet } from 'react-native';
 
 export default function App() {
   let name = "Alex Nascimento";
@@ -13,10 +13,11 @@ export default function App() {
   }
 
   return (
-    <View style={{ marginTop: 25 }}>
+    <View style={styles.area}>
       <Button title="Mudar nome" onPress={() => entrar("Alex Nascimento!", 37)} />
 
-      <Text style={{ color: "#FF0000", fontSize: 25, margin: 10 }} >Meu segundo App - Olá Mundo!</Text>
+      <Text style={[styles.titulo, styles.textoAlinhado, { marginTop: 15 } ]} >Meu segundo App</Text>
+      <Text style={[styles.subTitulo, styles.textoAlinhado]} >Olá Mundo!</Text>
       
       <Text style={{ fontSize: 18, color: "green", }} >Nome alterável: {nome}</Text>
       <Text style={{ fontSize: 19, color: "blue", }} >Idade alterável: {idade}</Text>
@@ -40,12 +41,21 @@ function Logo(props) {
   )
 }
 
-// export default class App extends Component {
-//   render() {
-//     return (
-//       <View>
-//         <Text>Olá Mundo!!!</Text>
-//       </View>
-//     )
-//   }
-// }
+const styles = StyleSheet.create({
+  area: {
+    marginTop: 60
+  },
+  titulo: {
+    fontSize: 20,
+    color: "#FF0456"
+  },
+  subTitulo: {
+    color: "#2200FF",
+    fontSize: 17,
+    marginTop: 8,
+    marginBottom: 15
+  },
+  textoAlinhado: {
+    textAlign: 'center'
+  }
+})
